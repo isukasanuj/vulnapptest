@@ -22,8 +22,8 @@ That's it — PHP and MySQL run inside containers, nothing to install on the hos
 
 ```bash
 # 1. clone
-git clone https://github.com/<your-username>/cloudinsure-vapt-lab.git
-cd cloudinsure-vapt-lab
+git clone https://github.com/isukasanuj/vulnapptest.git
+cd vulnapptest
 
 # 2. build and start
 docker compose up --build
