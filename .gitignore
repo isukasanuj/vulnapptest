@@ -1,0 +1,15 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Local scratch / temp
+*.log
+poc.html
+scratchpad/
+
+# Runtime upload artifacts (data lives in Docker volumes, not the repo)
+app/storage/uploads/*
+!app/storage/uploads/.gitkeep

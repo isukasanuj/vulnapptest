@@ -1,0 +1,40 @@
+services:
+  web:
+    build: ./app
+    container_name: cloudinsure_web
+    ports:
+      - "8888:80"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: cloudinsure
+      DB_USER: cloudinsure
+      DB_PASS: cloudinsure_pw
+    volumes:
+      - uploads:/var/www/html/storage/uploads
+    restart: unless-stopped
+
+  db:
+    image: mysql:8.0
+    container_name: cloudinsure_db
+    environment:
+      MYSQL_ROOT_PASSWORD: root_pw
+      MYSQL_DATABASE: cloudinsure
+      MYSQL_USER: cloudinsure
+      MYSQL_PASSWORD: cloudinsure_pw
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot_pw"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
+
+volumes:
+  dbdata:
+  uploads:
